@@ -1,0 +1,161 @@
+import React from 'react';
+import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
+
+export default function NewScreen({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}
+      >
+        <Image
+          source={require('./assets/Arrow Left.png')}
+          style={{
+            width: 7,
+            height: 14,
+            top: 5,
+            left: 8,
+          }}
+        />
+      </TouchableOpacity>
+      <View style={styles.centeredText}>
+        <Text style={styles.text}>
+          I am creating this wellness account as a
+        </Text>
+        <Text style={styles.descriptionText}>
+          Person <Text style={styles.highlightedText}>looking</Text> for services and classes
+        </Text>
+      </View>
+      <TouchableOpacity style={styles.clientButton}>
+        <Text style={styles.buttonText}>Client</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.providerButton}>
+        <Text style={styles.buttonText}>Service Provider</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.providerDescriptionText}>
+           <Text style={styles.highlightedText}>Person or Business</Text> that provides service
+        </Text>
+        <Text style={styles.messageText}>
+  Service Providers Automatically get a Client Portal!
+</Text>
+
+      {/* Add your screen content here */}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 5,
+    left: 8,
+    width: 7,
+    height: 14,
+  },
+  centeredText: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    width: 229,
+    height: 68,
+    bottom: 120,
+    left: 0,
+    fontFamily: 'Classico',
+    fontSize: 26,
+    fontWeight: '700',
+    lineHeight: 34,
+    letterSpacing: 1,
+    textAlign: 'center',
+    color: '#352F23',
+  },
+  descriptionText: {
+    width: 272,
+    height: 24,
+    top: 25,
+    left: 0,
+    fontFamily: 'Quattrocento Sans',
+    fontSize: 16,
+    fontWeight: '700',
+    lineHeight: 24,
+    letterSpacing: 0,
+    textAlign: 'center',
+  },
+  highlightedText: {
+    color: '#595045',
+  },
+  clientButton: {
+    width: 327,
+    height: 64,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+    bottom: 280,
+    borderRadius: 30,
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: 'white',
+    backgroundColor: '#B0BFB1',
+    overflow: 'hidden',
+  },
+
+  providerButton: {
+    width: 327,
+    height: 64,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+    bottom: 200,
+    borderRadius: 30,
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: 'white',
+    backgroundColor: '#B0BFB1',
+    overflow: 'hidden',
+  },
+
+  buttonText: {
+    fontFamily: 'Quattrocento Sans',
+    fontSize: 24,
+    fontWeight: '700',
+    lineHeight: 26,
+    letterSpacing: 0,
+    textAlign: 'center',
+    color: 'black',
+  },
+
+  providerDescriptionText: {
+    width: 284,
+    height: 24,
+    bottom: 160,
+    left: 0,
+    fontFamily: 'Quattrocento Sans',
+    fontSize: 16,
+    fontWeight: '700',
+    lineHeight: 24,
+    letterSpacing: 0,
+    textAlign: 'center',
+    color: 'black',
+  },
+  messageText: {
+    width: 261,
+    height: 48,
+    bottom: 120,
+    left:0 ,
+    fontFamily: 'Quattrocento Sans',
+    fontSize: 16,
+    fontWeight: '700',
+    lineHeight: 24,
+    letterSpacing: 0,
+    textAlign: 'center',
+    Color: '#352F23',
+},
+
+});

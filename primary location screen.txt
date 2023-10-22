@@ -1,0 +1,119 @@
+import React, { useState } from 'react';
+import { View, Image, Text, StyleSheet, Picker } from 'react-native';
+
+export default function App() {
+  const [selectedPlace, setSelectedPlace] = useState('choose one');
+  const placesInBangalore = [
+    'Bangalore',
+    'Mangalore',
+    'Punjab',
+    'Kashmir',
+    // Add more places as needed
+  ];
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.topCenter}>
+        <Image
+          source={require('./assets/Logo.png')}
+          style={{
+            width: 114.67,
+            height: 84.24,
+          }}
+        />
+      </View>
+      <Image
+        source={require('./assets/Group 4533864.png')}
+        style={{
+          width: 176.97,
+          height: 68,
+          marginBottom: 430,
+        }}
+      />
+      <Image
+        source={require('./assets/Button.png')}
+        style={{
+          width: 80, // Adjusted width
+          height: 22, // Adjusted height
+          bottom: 380, // Adjusted position
+          left: 0, // Adjusted position
+        }}
+      />
+      <Text style={styles.primaryLocationText}>
+        My Primary Location
+      </Text>
+      <View style={styles.centeredPickerContainer}>
+        <Picker
+          selectedValue={selectedPlace}
+          style={styles.picker}
+          onValueChange={(itemValue, itemIndex) => setSelectedPlace(itemValue)}
+        >
+          {placesInBangalore.map((place, index) => (
+            <Picker.Item label={place} value={place} key={index} />
+          ))}
+        </Picker>
+      </View>
+      <Text style={styles.additionalText}>
+        You can change this later
+      </Text>
+      
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 20,
+  },
+  topCenter: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    paddingTop: 30,
+  },
+  primaryLocationText: {
+    fontFamily: 'Quattrocento Sans',
+    fontSize: 16,
+    fontWeight: '400',
+    lineHeight: 24,
+    letterSpacing: 0,
+    textAlign: 'center',
+    width: 142,
+    height: 24,
+    bottom: 335,
+    left: 0,
+    Color: '#352F23',
+  },
+  centeredPickerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+    bottom:300,
+  },
+  picker: {
+    width: 327,
+    height: 68,
+    left: 24,
+    marginBottom:0,
+  },
+  additionalText: {
+    fontFamily: 'Quattrocento Sans',
+    fontSize: 16,
+    paddingBottom:90,
+    fontWeight: '700',
+    lineHeight: 24,
+    letterSpacing: 0,
+    textAlign: 'center',
+    width: 172,
+    height: 24,
+    top: -200,
+    left: 0,
+    Color: '#352F23',
+  },
+ 
+
+});
